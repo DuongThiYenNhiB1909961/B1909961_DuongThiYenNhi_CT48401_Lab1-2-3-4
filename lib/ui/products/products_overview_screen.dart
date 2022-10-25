@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../cart/cart_manager.dart';
 import '../cart/cart_screen.dart';
 import 'products_grid.dart';
@@ -32,10 +33,10 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   }
 
   Widget buildShoppingCartIcon() {
-    return TopRightBadge(
-      // builder: (ctx, cartManager, child) {
-      //   return TopRightBadge(
-          data: CartManager().productCount,
+    return Consumer<CartManager>(
+      builder: (ctx, cartManager, child) {
+        return TopRightBadge(
+          data: cartManager.productCount,
           child: IconButton(
             icon: const Icon(
               Icons.shopping_cart,
@@ -44,8 +45,8 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
               Navigator.of(context).pushNamed(CartScreen.routeName);
             },
           ),
-      //     );
-      //   },
+          );
+        },
     );
   }
 
