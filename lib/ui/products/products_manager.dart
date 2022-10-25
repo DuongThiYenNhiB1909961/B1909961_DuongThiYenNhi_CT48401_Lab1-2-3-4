@@ -38,6 +38,7 @@ class ProductsManager{
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
       isFavorite: true,
     ),
+
   ];
 
   int get itemCount {
@@ -50,5 +51,10 @@ class ProductsManager{
 
   List<Product> get favoriteItems {
     return _items.where((prodItem) => prodItem.isFavorite).toList();
+  }
+  
+
+  Product findById(String id) {
+    return _items.firstWhere((prod) => prod.id == id);
   }
 }

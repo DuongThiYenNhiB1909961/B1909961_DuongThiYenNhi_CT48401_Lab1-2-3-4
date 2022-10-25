@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'order_manager.dart';
 import 'order_item_card.dart';
+import '../shared/app_drawer.dart';
 
 // import '../shared/app_drawer.dart';
 
 // import 'package:provider/provider.dart';
 
 class OrdersScreen extends StatelessWidget {
-  // static const routeName = '/orders';
+  static const routeName = '/orders';
 	const OrdersScreen({super.key});
 
 	@override
@@ -19,7 +20,7 @@ class OrdersScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Your Orders'),
       ),
-      // drawer: const AppDrawer(),
+      drawer: const AppDrawer(),
       body: ListView.builder(
         // builder: (ctx, ordersManager, child) {
         //   return ListView.builder(
